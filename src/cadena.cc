@@ -11,33 +11,22 @@
   * comprobaciones básicas sobre ellas
   */
 
+
 #include <iostream>
-#include <set>
 #include "Alphabet.h"
+#include "cadena.h"
 
-Alphabet::Alphabet() {
-  alphabet_.clear();
-}
-
-void Alphabet::Insert(char symbol) {
-  alphabet_.insert(symbol);
-}
-
-void Alphabet::ReadAlphabet() {
-  for (char symbol : alphabet_) {
-    std::cout << symbol << " ";
+Cadena::Cadena(std::string& cadena_de_entrada) {
+  cadena_ = cadena_de_entrada;
+  for (char caracter: cadena_de_entrada) {
+    alfabeto_asociado.Insert(caracter);              
   }
-  std::cout << std::endl;
 }
 
-void Alphabet::Clear() {
-  alphabet_.clear();
+std::string Cadena::GetCadena() {
+  return cadena_;
 }
 
-bool Alphabet::Pertenece(char symbol) {
-  if (symbol == '&') return true;
-  for (char aux_symbol : alphabet_) {
-    if (aux_symbol == symbol) return true;
-  }
-  return false;
+Alphabet Cadena::GetAlfabeto() {
+  return alfabeto_asociado;
 }

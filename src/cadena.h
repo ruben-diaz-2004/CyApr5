@@ -10,25 +10,23 @@
   * cadenas junto con sus respectivos alfabetos. Y es capaz de realizar varias 
   * comprobaciones básicas sobre ellas
   */
+#ifndef CADENA_H_
+#define CADENA_H_
 
 #include <iostream>
-#include <set>
+#include "Alphabet.h"
 
-#ifndef _ALPHABET_H
-#define _ALPHABET_H
-
-class Alphabet {
+class Cadena {
   public:
-  Alphabet();
-  void Insert(char symbol);
-  void ReadAlphabet();
-  std::set<char> Alfabeto() const { return alphabet_; }
-  void Clear();
-  bool Pertenece(char symbol);
+  Cadena(std::string& cadena_de_entrada);
+  std::string GetCadena();
+  Alphabet GetAlfabeto();
+  
   private:
-  std::set<char> alphabet_;
-};
+  std::string cadena_{0};
+  Alphabet alfabeto_asociado;
 
+};
 
 
 #endif

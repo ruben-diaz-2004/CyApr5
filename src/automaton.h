@@ -10,14 +10,14 @@
   * cadenas junto con sus respectivos alfabetos. Y es capaz de realizar varias 
   * comprobaciones básicas sobre ellas
   */
-#ifndef STRINGS_H_
-#define STRINGS_H_
+#ifndef AUTOMATON_H_
+#define AUTOMATON_H_
 
 #include <iostream>
 #include <fstream>
 #include <map>
 #include <set>
-
+#include "cadena.h"
 #include "state.h"
 #include "Alphabet.h"
 
@@ -25,13 +25,15 @@
 class Automaton {
 public:
   Automaton(std::ifstream& automaton_file);
-
-  bool IsAccepted(const std::string& cadena_de_entrada);
+  int GetNumberOfStates() const { return number_of_states_; }
+  int GetInitialState() const { return initial_state_; }
+  Alphabet GetAlphabet() const { return alphabet_; }
+  bool IsAccepted(Cadena& cadena_de_entrada);
 
 private:
   int number_of_states_;
-  Alphabet alphabet_;
   int initial_state_;
+  Alphabet alphabet_;
   std::map<int, State> estados_;
 
 };

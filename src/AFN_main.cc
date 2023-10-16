@@ -13,7 +13,7 @@
 #include <fstream>
 #include "parameters.cc"
 #include "automaton.h"
-
+#include "cadena.h"
 
 
 int main(int argc, char *argv[]) {
@@ -24,15 +24,17 @@ int main(int argc, char *argv[]) {
   
   Automaton mi_automata(input_NFA);
 
-  std::string cadena_a_probar;
-    do {
-    cadenas >> cadena_a_probar;
-    if (mi_automata.IsAccepted(cadena_a_probar)) {
-      std::cout << cadena_a_probar << " --- Acepted\n";
-    } else {
-      std::cout << cadena_a_probar << " --- Rejected\n";
+  std::string cadena_auxiliar;
+  cadenas >> cadena_auxiliar;
+    while (cadenas) {
+    Cadena cadena_bien(cadena_auxiliar);
+      if (mi_automata.IsAccepted(cadena_bien)) {
+        std::cout << cadena_bien.GetCadena() << " --- Acepted\n";
+      } else {
+        std::cout << cadena_bien.GetCadena() << " --- Rejected\n";
+      }
+      cadenas >> cadena_auxiliar;
     }
-  } while (cadenas);
-  
+
   return 0;
 }
