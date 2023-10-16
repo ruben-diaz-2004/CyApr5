@@ -20,6 +20,12 @@
 #include "state.h"
 #include "cadena.h"
 
+
+/**
+ * Constructor de la clase automaton
+ * Recive un fichero con la especificación del autómata
+ * @param automaton_file. Fichero de especificación del autómata
+*/
 Automaton::Automaton(std::ifstream& automaton_file) {
   std::string cadena_auxiliar;
   cadena_auxiliar.clear();
@@ -76,6 +82,11 @@ Automaton::Automaton(std::ifstream& automaton_file) {
 
 
 
+/**
+ * Método que comprueba si una cadena de entrada es aceptada por el autómata o no
+ * @param cadena_de_entrada
+ * @return true, si la cadena es aceptada
+*/
 bool Automaton::IsAccepted(Cadena& cadena_de_entrada) {
   std::set<int> current_states;
   std::set<int> next_states;

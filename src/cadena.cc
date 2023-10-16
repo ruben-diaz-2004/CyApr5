@@ -16,6 +16,10 @@
 #include "Alphabet.h"
 #include "cadena.h"
 
+/**
+ * Constructor de la clase cadena
+ * @param cadena_de_entrada
+*/
 Cadena::Cadena(std::string& cadena_de_entrada) {
   cadena_ = cadena_de_entrada;
   for (char caracter: cadena_de_entrada) {
@@ -23,10 +27,18 @@ Cadena::Cadena(std::string& cadena_de_entrada) {
   }
 }
 
+/**
+ * Getter de la cadena
+ * @return cadena_
+*/
 std::string Cadena::GetCadena() {
   return cadena_;
 }
 
+/**
+ * Getter del alfabeto
+ * @return alfabeto_asociado_
+*/
 Alphabet Cadena::GetAlfabeto() {
   return alfabeto_asociado;
 }
