@@ -14,7 +14,7 @@ CXXFLAGS = -Wall -std=c++17 -g
 
 all: p05_automata_simulator
 
-p02_strings: src/AFN_main.cc src/automaton.cc src/state.cc src/Alphabet.cc src/cadena.cc
+p05_automata_simulator: src/AFN_main.cc src/automaton.cc src/state.cc src/Alphabet.cc src/cadena.cc
 		$(CXX) $(CXXFLAGS) -o $@ $^
 	
 
